@@ -22,14 +22,8 @@ def set_operation():
     elif args.a:
         operator = "+"
     else:
-        #print("---!!!EIN FEHLER IS UNTERLAUFEN!!!---")
-        #exit("FEHLER BEI set_operation")
         operator = "+"
     return operator
-#i = 0
-#while args.Menge > i:
-    #print(i)
-    #i=i+1
 ''' Main for Loop für das erstellen der Aufgaben
 '''
 for i in range(args.Menge):
