@@ -8,7 +8,18 @@ parser.add_argument("-d", help="Divisionsaufgaben Überschreibt -a&-m", action="
 parser.add_argument("-p", help="Multiplikationsaufgaben Überschreibt alle anderen Flags", action="store_true")
 parser.add_argument("-u", help="Unteres Limit der Zahlen", type=int, default=1)
 parser.add_argument("-o", help="Zahl Oberlimit der Zahlen", type=int, default=100)
-args= parser.parse_args()
+args=parser.parse_args()
+def main():
+    # Main for Loop für das erstellen der Aufgaben
+    for i in range(args.Menge):
+        operator = set_operation()
+        zahlen = randint(args.u,args.o), randint(args.u,args.o)
+        zahlen = sorted(zahlen)
+        zahlen.reverse()
+        zahlen.insert(1, operator)
+        aufgabe = zahlen
+        print(str(aufgabe[0])+aufgabe[1]+str(aufgabe[2]))
+
 def set_operation():
     """ Diese Funktion überprüft die Argumente und wandelt sie ihn in einen Char um der später in den Aufgaben verwendet wird
     """
@@ -24,13 +35,6 @@ def set_operation():
     else:
         operator = "+"
     return operator
-''' Main for Loop für das erstellen der Aufgaben
-'''
-for i in range(args.Menge):
-    operator = set_operation()
-    zahlen = randint(args.u,args.o), randint(args.u,args.o)
-    zahlen = sorted(zahlen)
-    zahlen.reverse()
-    zahlen.insert(1, operator)
-    aufgabe = zahlen
-    print(str(aufgabe[0])+aufgabe[1]+str(aufgabe[2]))
+
+if __name__ == "__main__":
+    main()
